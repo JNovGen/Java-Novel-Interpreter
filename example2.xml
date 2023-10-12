@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<story title="Le mercenaire de l'espace" author="JR" startPoint="début" length="200">
+  <node id="fragment asteroide" textContent="Soudain un fragment d'astéroïde heurta le vaisseau." memoryAdd="dommages*1" memoryRemove="" memoryCondition="" nextNodes="fragment asteroide degats1,fragment asteroide degats2,fragment asteroide degats3" unique="false" variable="" />
+  <node id="mission retour" textContent="Le pilote entra de nouveaux coordonnées et le vaisseau se dirigea vers la planète des mercenaires." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="vérification dommages,planète mercenaires descente" unique="false" variable="" />
+  <node id="fragment asteroide degats1" textContent="Le blindage fut perforé mais aucun dommage critique ne fut constaté par l'ordinateur de bord." memoryAdd="" memoryRemove="" memoryCondition="dommages=1" nextNodes="mission retour" unique="false" variable="" />
+  <node id="fragment asteroide degats3" textContent="Le vaisseau se désintégra dans l'espace." memoryAdd="" memoryRemove="" memoryCondition="dommages&gt;2" nextNodes="espace pilote capsule survie" unique="false" variable="" />
+  <node id="fragment asteroide degats2" textContent="Une explosion secoua le vaisseau dans toute sa structure, des alertes s'affichaient sur tout le tableau de bord, le système de secours s'activa automatiquement. Les dommages étaient critiques, le moteur principal était endommagé. " memoryAdd="" memoryRemove="" memoryCondition="dommages=2" nextNodes="mission retour" unique="false" variable="" />
+  <node id="planète mercenaires descente" textContent="Le pilote entama la procédure de descente dans la stratosphère, le vaisseau traversa d'épais nuages. Le bouclier thermique protégea le vaisseau jusqu'à son approche finale." memoryAdd="" memoryRemove="" memoryCondition="dommages&lt;2" nextNodes="planète mercenaires survol" unique="false" variable="" />
+  <node id="planète mercenaires accueil" textContent="Le pilote descendit du vaisseau et fut accueilli par un garde qui l'accompagna dans la tour. Le garde pianota sur un terminal et ils s'engouffrèrent dans un ascenseur." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission,première mission" unique="false" variable="" />
+  <node id="planète mercenaires atterrissage" textContent="Une plate-forme d'atterrissage était accrochée sur le flanc du gratte-ciel, le vaisseau se posa sans encombres." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="planète mercenaires accueil" unique="false" variable="" />
+  <node id="planète mercenaires descente avec dommages critiques" textContent="Le pilote entama la procédure de descente dans la stratosphère, le vaisseau tremblait de toutes parts, le bouclier thermique devait être endommagé, des parties du fuselage se détachaient du vaisseau. Le vaisseau se désintégra dans l'atmosphère." memoryAdd="" memoryRemove="" memoryCondition="dommages&gt;1" nextNodes="mercenaire réanimation dans la tour des mercenaires" unique="false" variable="" />
+  <node id="mission1 difficulté1 partie2" textContent="L'ordinateur de bord verrouilla les cibles sur les plus gros astéroïdes. Le pilote ouvrit le feu, les astéroïdes se brisèrent et s'éparpillèrent en petits fragments. Ils ne représenteraient plus une menace pour les vaisseaux du convoi qui disposaient d'un blindage suffisant. La mission était accomplie." memoryAdd="MissionInfo=Le convoi a pu passer le champ d'astéroïdes sans encombres. Vous avez bien mérité votre récompense." memoryRemove="" memoryCondition="" nextNodes="fragment asteroide,mission retour" unique="false" variable="" />
+  <node id="pas de drones de réparation" textContent="" memoryAdd="" memoryRemove="" memoryCondition="dronesreparation&lt;1" nextNodes="planète mercenaires descente avec dommages critiques" unique="false" variable="" />
+  <node id="besoin de réparation" textContent="Le vaisseau avait besoin d'une réparation." memoryAdd="" memoryRemove="" memoryCondition="dommages&gt;0" nextNodes="crédits suffisants pour réparation,crédits insuffisants pour réparation" unique="false" variable="" />
+  <node id="pas besoin de réparation" textContent="" memoryAdd="" memoryRemove="" memoryCondition="dommages&lt;1" nextNodes="armurie vaisseau,armurie,pas assez de crédits" unique="false" variable="" />
+  <node id="première mission" textContent="L'ascenseur s'arrêta au dernier étage de la tour. Ils entrèrent dans une grande salle, près d'une baie vitrée, un homme assis sur un fauteuil regardait les étendues désertiques. Il ne prit pas la peine de se retourner et entama la discussion. Se retournant brièvement, Il montra la carte magnétique posée sur un long bureau. Le pilote prit la carte et sortit du spacieux bureau.  " memoryAdd="quête*1,difficulté*1" memoryRemove="" memoryCondition="quête&lt;1" nextNodes="planète mercenaires décollage avec mission" unique="false" variable="" />
+  <node id="armurie vaisseau" textContent="Le mercenaire se rendit à l'armurie pour les vaisseaux et regarda les armements disponibles." memoryAdd="" memoryRemove="" memoryCondition="crédits&gt;1" nextNodes="achat missile,achat canon,achat drone de réparation" unique="false" variable="" />
+  <node id="drones de réparation" textContent="Un drone de réparation s'activa et répara les principaux dégâts." memoryAdd="" memoryRemove="dommages*1" memoryCondition="dronesreparation&gt;0" nextNodes="planète mercenaires descente,planète mercenaires descente avec dommages critiques" unique="false" variable="" />
+  <node id="crédits suffisants pour réparation" textContent="C'est pourquoi il avait été transféré au sous-sol pour être réparé." memoryAdd="" memoryRemove="dommages*1,crédits*2" memoryCondition="crédits&gt;1" nextNodes="armurie vaisseau,armurie,pas assez de crédits" unique="false" variable="" />
+  <node id="armurie" textContent="Le mercenaire se rendit à l'armurerie et regarda les armes et protections disponibles" memoryAdd="" memoryRemove="" memoryCondition="crédits&gt;0" nextNodes="achat plastron,achat couteau,achat pistolet,achat fusil d'assaut,achat fusil de précision,achat medikit" unique="false" variable="" />
+  <node id="achat missile" textContent="Il acheta un missile guidé, les techniciens installèrent le nouveau missile." memoryAdd="missile*1" memoryRemove="crédits*2" memoryCondition="" nextNodes="planète mercenaires décollage avec mission" unique="false" variable="" />
+  <node id="achat cannon" textContent="Il acheta un canon embarqué supplémentaire à munitions explosives, les techniciens installèrent le nouveau dispositif." memoryAdd="armement*1" memoryRemove="crédits*2" memoryCondition="" nextNodes="planète mercenaires décollage avec mission" unique="false" variable="" />
+  <node id="achat drone de réparation" textContent="Il acheta un drone de réparation, les techniciens installèrent le nouveau dispositif." memoryAdd="dronesreparation*1" memoryRemove="crédits*2" memoryCondition="dronesreparation&lt;1" nextNodes="planète mercenaires décollage avec mission" unique="false" variable="" />
+  <node id="achat plastron" textContent="Il acheta un plastron et l'enfila." memoryAdd="armure*1" memoryRemove="crédits*1" memoryCondition="" nextNodes="planète mercenaires décollage avec mission" unique="true" variable="" />
+  <node id="achat couteau" textContent="Il acheta un couteau de combat." memoryAdd="arme*1" memoryRemove="crédits*1" memoryCondition="" nextNodes="planète mercenaires décollage avec mission" unique="true" variable="" />
+  <node id="achat pistolet" textContent="Il acheta un pistolet." memoryAdd="arme*1" memoryRemove="crédits*1" memoryCondition="" nextNodes="planète mercenaires décollage avec mission" unique="true" variable="" />
+  <node id="achat fusil d'assaut" textContent="Il acheta un fusil d'assaut." memoryAdd="arme*1" memoryRemove="crédits*1" memoryCondition="" nextNodes="planète mercenaires décollage avec mission" unique="true" variable="" />
+  <node id="achat fusil de précision" textContent="Il acheta un fusil de précision." memoryAdd="arme*1" memoryRemove="crédits*1" memoryCondition="" nextNodes="planète mercenaires décollage avec mission" unique="true" variable="" />
+  <node id="pas assez de crédits" textContent="" memoryAdd="" memoryRemove="" memoryCondition="crédits&lt;1" nextNodes="planète mercenaires décollage avec mission" unique="false" variable="" />
+  <node id="crédits insuffisants pour réparation" textContent="Mais le mercenaire n'avait pas assez de crédits." memoryAdd="" memoryRemove="" memoryCondition="crédits&lt;2" nextNodes="pas assez de crédits" unique="false" variable="" />
+  <node id="planète mercenaires décollage avec mission" textContent="Il retourna à son vaisseau, inséra la carte magnétique, des coordonnées s'affichèrent à l'écran. Le vaisseau décolla et s'éloigna de la tour.&lt;chapter&gt;" memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="sortie planète des mercenaires avec mission" unique="false" variable="" />
+  <node id="début" textContent="Début.&lt;chapter&gt;" memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="planète mercenaires descente" unique="false" variable="" />
+  <node id="sortie planète des mercenaires avec mission" textContent="Le vaisseau sortit de l'attraction de la planète et se dirigea vers les coordonnées indiquées par la carte magnétique." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission1 difficulté1 partie1,mission2 difficulté1 partie1,mission3 difficulté1 partie1,mission4 vaisseau mère,mission4 station orbitale,mission4 station minière,mission4 planète de glace bunker,mission4 planète montagneuse,mission5 générique" unique="false" variable="" />
+  <node id="mission2 difficulté1 partie2" textContent="Le vaisseau s'approcha doucement de la station, le pilote tenta de rentrer en contact avec la station mais personne ne répondit." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission2 difficulté1 partie3" unique="false" variable="" />
+  <node id="mission2 difficulté1 partie3" textContent="Le pilote amarra le vaisseau à la station. Il ouvrit le sas et entra dans la station." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission2 difficulté1 partie4" unique="false" variable="" />
+  <node id="mission2 difficulté1 partie4" textContent="Il explora les lieux, l'équipage avait semblait avoir quitté les lieux." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission2 difficulté1 partie5" unique="false" variable="" />
+  <node id="mission2 difficulté1 partie5" textContent="Il se rendit au laboratoire." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission2 difficulté1 partie6" unique="false" variable="" />
+  <node id="mission2 difficulté1 partie6" textContent="Au moment de poser une charge explosive, il entendit un bruit et se retourna de justesse pour éviter l'assaut d'une petite créature. Il la perdit de vue, il enclencha le minuteur de la charge et se précipita vers la sortie. Il rejoignit à toute allure son vaisseau et le vaisseau s'éloigna de la station." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission2 difficulté1 partie7" unique="false" variable="" />
+  <node id="mission2 difficulté1 partie7" textContent="Un module de la station explosa et provoqua une réaction en chaîne, toute la station se pulvérisa en petits débris qui se dispersèrent rapidement." memoryAdd="MissionInfo=Félicitation! La station qui servait de laboratoire clandestin a été détruite. Il va de soit que vous n'avez rien vu dans la station,créature*1" memoryRemove="" memoryCondition="" nextNodes="mission retour" unique="false" variable="" />
+  <node id="mission3 difficulté1 partie2 missile vers intercepteur" textContent="Le pilote verrouilla sa cible sur le vaisseau d'escorte et fit feu. Un missile fonça à toute vitesse sur l'intercepteur. L'intercepteur eut à peine le temps d'entamer une manoeuvre d'évitement qu'il explosa." memoryAdd="" memoryRemove="missile*1" memoryCondition="missile&gt;0" nextNodes="mission3 difficulté1 partie3 " unique="false" variable="" />
+  <node id="mission3 difficulté1 partie3 " textContent="Le pilote verrouilla ensuite sa cible sur le vaisseau cargo, les rafales de tirs vinrent rapidement à bout de son blindage et le vaisseau cargo implosa." memoryAdd="MissionInfo=Parfait! la cargaison du vaisseau a été pulvérisée." memoryRemove="" memoryCondition="" nextNodes="mission retour" unique="false" variable="" />
+  <node id="mission3 difficulté1 partie 2 intercepteur tire missile" textContent="Soudain l'écran du pilote s'illumina, l'intercepteur venait de tirer un missile." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission3 difficulté1 partie 2 évitement missile" unique="false" variable="" />
+  <node id="mission3 difficulté1 partie 2 évitement missile" textContent="Le pilote eut juste le temps d'effectuer une manoeuvre d'évitement et le missile rata sa cible de justesse." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission3 difficulté1 partie 2 évitement missile ordinateur de bord" unique="false" variable="" />
+  <node id="mission3 difficulté1 partie 2 évitement missile ordinateur de bord" textContent=" Il entra manuellement des instructions frénétiquement à l'ordinateur de bord qui exécuta les ordres. " memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission3 difficulté1 partie 2 dans trajectoire vaisseau cargo" unique="false" variable="" />
+  <node id="mission3 difficulté1 partie 2 dérrière vaisseau cargo" textContent="Le missile recalcula sa direction et se dirigea à nouveau vers le vaisseau du mercenaire qui venait de se placer juste derrière le vaisseau cargo." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission3 difficulté1 partie 2 missile explosion cargo" unique="false" variable="" />
+  <node id="mission3 difficulté1 partie 2 dans trajectoire vaisseau cargo" textContent="Le vaisseau vînt se placer dans la trajectoire du vaisseau cargo." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission3 difficulté1 partie 2 dérrière vaisseau cargo" unique="false" variable="" />
+  <node id="mission3 difficulté1 partie3 escorteur fuite" textContent="Le vaisseau d'escorte enclencha la postcombustion de son moteur et prit la fuite." memoryAdd="MissionInfo=Parfait! la cargaison du vaisseau a été pulvérisée." memoryRemove="" memoryCondition="" nextNodes="mission retour" unique="false" variable="" />
+  <node id="mission3 difficulté1 partie 2 missile explosion cargo" textContent=" La mise à jour de l'information parvînt une fraction de seconde trop tard au missile et il s'écrasa contre le vaisseau cargo qui explosa." memoryAdd="MissionInfo=Parfait! la cargaison du vaisseau a été pulvérisée mais vous avez laissé un témoin de l'attaque,témoin*1" memoryRemove="" memoryCondition="" nextNodes="mission3 difficulté1 partie3 escorteur fuite" unique="false" variable="" />
+  <node id="mission3 difficulté1 partie2 missile vers cargo" textContent="Le pilote verrouilla sa cible sur le vaisseau cargo et fit feu. Un missile fonça à toute vitesse sur le vaisseau cargo. Le vaisseau trop lent pour tenter une quelconque manœuvre d'évitement explosa. " memoryAdd="MissionInfo=Parfait ! la cargaison du vaisseau a été pulvérisée par votre missile mais vous avez laissé un témoin de l'attaque,témoin*1" memoryRemove="missile*1" memoryCondition="missile&gt;0" nextNodes="mission3 difficulté1 partie3 escorteur fuite" unique="false" variable="" />
+  <node id="mission3 difficulté1 partie1" textContent="Sur l'écran du pilote apparût la position d'un vaisseau cargo et celle d'un vaisseau intercepteur." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission3 difficulté1 partie2 missile vers intercepteur,mission3 difficulté1 partie2 missile vers cargo,mission3 difficulté1 partie 2 intercepteur tire missile" unique="true" variable="" />
+  <node id="mission2 difficulté1 partie1" textContent="Une station orbitale apparut en visuel." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission2 difficulté1 partie2" unique="true" variable="" />
+  <node id="mission1 difficulté1 partie1" textContent="Un champ d'astéroïdes apparût devant le vaisseau." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission1 difficulté1 partie2" unique="true" variable="" />
+  <node id="planète mercenaires survol" textContent="Le vaisseau survola des étendues désertiques, tandis que se profilait à l'horizon un gratte-ciel entouré d'habitations sommaires." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="planète mercenaires atterrissage" unique="false" variable="" />
+  <node id="vaisseau pirate" textContent="Un vaissseau pirate arriva subitement devant le vaisseau du mercenaire." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="vaisseau pirate attaque,vaisseau pirate attaque missile" unique="false" variable="" />
+  <node id="vaisseau pirate attaque" textContent="Le vaisseau hostile tira à plusieurs reprises." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="dégâts tirs sur vaisseau" unique="false" variable="" />
+  <node id="vaisseau pirate attaque missile" textContent="Le vaisseau hostile tira un missile qui fonça vers le vaisseau du mercenaire." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="vaisseau détruit par missile" unique="false" variable="" />
+  <node id="riposte vaisseau contre vaisseau pirate avec missile" textContent="Des alertes s'affichait partout sur l'écran de bord du mercenaire, malgré tout il riposta et engagea un missile qui partit à toute vitesse sur sa cible." memoryAdd="" memoryRemove="missile*1" memoryCondition="missile&gt;0" nextNodes="explosion du vaisseau pirate par missile" unique="false" variable="" />
+  <node id="vaisseau pirate touché et fuite" textContent="Le vaisseau pirate touché prit la fuite." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission retour" unique="false" variable="" />
+  <node id="explosion du vaisseau pirate par missile" textContent="Le vaisseau pirate ne put éviter le missile et explosa à son impacte dans une multitude de débris." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="débris,évitement de débris" unique="false" variable="" />
+  <node id="explosion du vaisseau par des tirs" textContent="Le vaisseau touché par plusieurs tirs explosa." memoryAdd="" memoryRemove="" memoryCondition="dommages&gt;2" nextNodes="espace pilote capsule survie" unique="false" variable="" />
+  <node id="vaisseau détruit par missile" textContent="Le missile percuta le vaisseau du mercenaire qui explosa. Les débris du vaisseau s'éparpillèrent dans l'immensité de l'espace." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="espace pilote capsule survie" unique="false" variable="" />
+  <node id="évitement des tirs du vaisseau pirate" textContent="Le mercenaire évita de justesse les rafales de tirs." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="riposte vaisseau contre vaisseau pirate,riposte vaisseau contre vaisseau pirate avec missile" unique="false" variable="" />
+  <node id="mission4 station minière" textContent="il arriva au niveau d'un énorme astéroïde, sur laquelle avait été établie une petite colonie minière. Il entra en contact radio avec le poste de contrôle de la colonie et reçut l'autorisation d'atterrir." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 station minière 2" unique="true" variable="" />
+  <node id="champ électromagnétique" textContent="Soudain les appareils de navigation se mirent à afficher des informations incohérentes. Le pilote prit les commandes manuellement." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission retour,champ de débris" unique="true" variable="" />
+  <node id="champ de débris" textContent="Le mercenaire se retrouva dans un champ de débris de différentes tailles." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="débris,évitement de débris" unique="true" variable="" />
+  <node id="évitement de débris" textContent="Le mercenaire évita de justesse les débris." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission retour" unique="false" variable="" />
+  <node id="mission4 planète de glace bunker" textContent="Il arriva à proximité d'une énorme planète et il amorça sa descente dans l'atmosphère. La surface de la planète était recouverte de glace, l'ordinateur de bord calcula la trajectoire d'atterrissage jusqu'à un bunker isolé." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète de glace bunker 2" unique="true" variable="" />
+  <node id="vaisseau drone de combat" textContent="Un drone de combat automatique arriva subitement devant le vaisseau du mercenaire." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="vaisseau drone de combat attaque,riposte vaisseau contre drone avec missile" unique="false" variable="" />
+  <node id="dégâts tirs sur vaisseau" textContent="Une des rafales toucha le vaisseau." memoryAdd="dommages*1" memoryRemove="" memoryCondition="" nextNodes="explosion du vaisseau par des tirs,riposte vaisseau contre vaisseau pirate,riposte vaisseau contre vaisseau pirate avec missile" unique="false" variable="" />
+  <node id="débris" textContent="Soudain un débris heurta le vaisseau." memoryAdd="dommages*1" memoryRemove="" memoryCondition="" nextNodes="fragment asteroide degats1,fragment asteroide degats2,fragment asteroide degats3" unique="false" variable="" />
+  <node id="riposte vaisseau contre drone" textContent="Sans plus attendre il riposta. Il aligna son vaisseau sur le drone et il fit feu. Des tirs qui atteignirent leur cible. " memoryAdd="" memoryRemove="" memoryCondition="missile&lt;1" nextNodes="drone blindage résistance aux tirs,explosion drone de combat par tirs" unique="false" variable="" />
+  <node id="riposte vaisseau contre vaisseau pirate" textContent="Des alertes s'affichait partout sur l'écran de bord du mercenaire, malgré tout il aligna son vaisseau sur celui du pirate et riposta par des tirs qui atteignirent leur cible. " memoryAdd="" memoryRemove="" memoryCondition="missile&lt;1" nextNodes="vaisseau pirate touché et fuite" unique="false" variable="" />
+  <node id="vaisseau touché par tirs du drone" textContent="Des tirs endommagèrent le fuselage du vaisseau." memoryAdd="dommages*1" memoryRemove="" memoryCondition="" nextNodes="explosion du vaisseau par des tirs,riposte vaisseau contre drone,riposte vaisseau contre drone avec missile" unique="false" variable="" />
+  <node id="vaisseau drone de combat attaque" textContent="Le drone prit pour cible le vaisseau du mercenaire et des tirs d'une extrème précision sortirent des canons du drone. " memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="vaisseau touché par tirs du drone" unique="false" variable="" />
+  <node id="drone blindage résistance aux tirs" textContent="Le drone avait un tel blindage que les tirs eurent quasiment aucun effet, le drone se prépara à ouvrir le feu de nouveau." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="fuite du mercenaire" unique="false" variable="" />
+  <node id="riposte vaisseau contre drone avec missile" textContent="Sans plus attendre le pilote tira un missile guidé vers le drone." memoryAdd="" memoryRemove="missile*1" memoryCondition="missile&gt;0" nextNodes="explosion drone de combat par missile" unique="false" variable="" />
+  <node id="explosion drone de combat par missile" textContent="Le drone de combat explosa à l'impact du missile." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission retour" unique="false" variable="" />
+  <node id="explosion drone de combat par tirs" textContent="Le drone de combat explosa à l'impact des tirs." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission retour" unique="false" variable="" />
+  <node id="fuite du mercenaire" textContent="Ne voyant qu'il n'avait aucune chance de ressortir vainqueur du combat, il enclencha la postcombustion des moteurs et prit la fuite." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission retour" unique="false" variable="" />
+  <node id="mission4 vaisseau mère 2" textContent="Sa venue était attendue, il posa son vaisseau dans le hangar du vaisseau mère. " memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 vaisseau mère 3 v1,mission4 vaisseau mère 3 v3,mission4 vaisseau mère 3 v2" unique="true" variable="" />
+  <node id="mission4 vaisseau mère 4" textContent="Il retourna à son vaisseau." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 vaisseau mère 5" unique="true" variable="" />
+  <node id="mission4 vaisseau mère 5" textContent="Il décolla et s'éloigna du vaisseau mère" memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="évèments aléatoires de retour" unique="true" variable="" />
+  <node id="mission4 station orbitale" textContent="il arriva au niveau d'une petite sation orbitale civile et entra en contact avec celle-ci. Il donna son code mission et reçut l'autorisation d'amarrer." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 station orbitale 2" unique="true" variable="" />
+  <node id="mission4 station orbitale 2" textContent="Le vaisseau s'amarra à la station et le mercenaire entra dans la station. " memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 station orbitale 3 v1,mission4 station orbitale 3 v2" unique="true" variable="" />
+  <node id="mission4 station orbitale 4" textContent="Le mercenaire s'engouffra dans le sas et s'installa dans son vaisseau." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 station orbitale 5" unique="true" variable="" />
+  <node id="mission4 station orbitale 5" textContent="Il s'éloigna au plus vite de la station qui se disloquait dans une série d'explosions." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="débris" unique="true" variable="" />
+  <node id="mission4 vaisseau mère 3 v1" textContent="Il sortit de son vaisseau et fut reçu en personne par le commandant. Après un bref échange on lui remit une précieuse petite boîte qui ne semblait contenir aucune ouverture. " memoryAdd="MissionInfo=L'objet que vous avez ramené sera examiné plus tard, en tout cas il a l'air en parfait état" memoryRemove="" memoryCondition="" nextNodes="mission4 vaisseau mère 4" unique="true" variable="" />
+  <node id="mission4 vaisseau mère 3 v2" textContent="Il sortit de son vaisseau et fut reçu en personne par le commandant. Après un bref échange on lui remit un petit objet en forme de pyramide. " memoryAdd="MissionInfo=L'objet que vous avez ramené sera examiné plus tard, en tout cas il a l'air en parfait état" memoryRemove="" memoryCondition="" nextNodes="mission4 vaisseau mère 4" unique="true" variable="" />
+  <node id="mission4 vaisseau mère 3 v3" textContent="Il sortit de son vaisseau et fut reçu en personne par le commandant. Après un bref échange on lui remit une carte magnétique. " memoryAdd="MissionInfo=Content de vous revoir ! Vous avez ramené de précieuses informations" memoryRemove="" memoryCondition="" nextNodes="mission4 vaisseau mère 4" unique="true" variable="" />
+  <node id="mission4 station orbitale 3 v1" textContent="Des lumières rouges s'allumaient et s'éteignaient dans les couloirs, quelqu'un arriva vers lui en courant et lui remit une carte magnétique. Une explosion venait de retentir et la station trembla dans toute sa structure. Il ordonna au mercenaire de repartir." memoryAdd="MissionInfo=Content de vous revoir ! Vous avez ramené de précieuses informations" memoryRemove="" memoryCondition="" nextNodes="mission4 station orbitale 4" unique="true" variable="" />
+  <node id="mission4 station orbitale 3 v2" textContent="Des lumières rouges s'allumaient et s'éteignaient dans les couloirs, quelqu'un arriva vers lui en courant et lui remit un disque translucide. Une explosion venait de retentir et la station trembla dans toute sa structure. Il ordonna au mercenaire de repartir." memoryAdd="MissionInfo=Content de vous revoir ! Vous avez ramené de précieuses informations" memoryRemove="" memoryCondition="" nextNodes="mission4 station orbitale 4" unique="true" variable="" />
+  <node id="mission4 vaisseau mère" textContent="il arriva au niveau d'un vaisseau mère qui croisait aux bonnes coordonnées et entra en contact avec lui. Le pilote donna son code mission et il reçut les instructions pour atterrir. " memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 vaisseau mère 2" unique="true" variable="" />
+  <node id="mission4 station minière 3" textContent="Il descendit du vaisseau et se dirigea vers la porte principale de la station." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 station minière 4" unique="false" variable="" />
+  <node id="mission4 station minière 2" textContent="Le mercenaire posa son vaisseau sur la plateforme d'atterrissage." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 station minière 3" unique="false" variable="" />
+  <node id="mission4 station minière 4" textContent="Le chef de la station minière l'attendait, il remit au mercenaire une mallette." memoryAdd="MissionInfo=La mallette que vous avez ramené contient des échantillons qui seront analysés" memoryRemove="" memoryCondition="" nextNodes="mission4 station minière 5" unique="false" variable="" />
+  <node id="mission4 station minière 5" textContent="Le mercenaire retourna à son vaisseau et décolla." memoryAdd="MissionInfo=La mallette que vous avez ramené contient des échantillons qui seront analysés" memoryRemove="" memoryCondition="" nextNodes="évèments aléatoires de retour" unique="false" variable="" />
+  <node id="champ d'astéroides" textContent="Soudain des astéroïdes entourèrent le vaisseau." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="fragment asteroide,évitement d'astéroides" unique="true" variable="" />
+  <node id="évitement d'astéroides" textContent="A l'aide de l'ordinateur de bord, le pilote arriva à éviter les astéroides." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission retour" unique="false" variable="" />
+  <node id="mission4 planète de glace bunker 2" textContent="Des rafales de vent balayaient la piste d'atterrissage. Le vaisseau du mercenaire se posa sans encombres." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète de glace bunker 3" unique="true" variable="" />
+  <node id="mission" textContent="L'ascenseur s'arrêta au dernier étage de la tour. Ils entrèrent dans une grande salle, près d'une baie vitrée, un homme assis sur un fauteuil regardait les étendues désertiques. Il se leva et s'approcha du mercenaire. &quot;MissionInfo, voici une autre mission:&quot; Il montra la carte magnétique posée sur un long bureau. Le pilote prit la carte et sortit du bureau.  " memoryAdd="quête*1,difficulté*1,crédits*1" memoryRemove="" memoryCondition="quête&gt;0" nextNodes="pas besoin de réparation,besoin de réparation" unique="false" variable="MissionInfo" />
+  <node id="mission4 planète montagneuse 5" textContent="Le regard du mercenaire se posa sur la boite qui se trouvait près du passager de la capsule." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 6,mission4 planète montagneuse 6 v2" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 4" textContent="Dans la capsule se trouvait un homme inerte en combinaison." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 5" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 3" textContent="Il arriva au niveau de la capsule et arriva ouvrir une écoutille." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 4" unique="false" variable="" />
+  <node id="mission4 planète de glace bunker 5" textContent="Il sortit du bunker sous une tempête de neige et atteignit son vaisseau. Il décolla péniblement et parvînt à sortir de l'attraction de la planète." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="évèments aléatoires de retour" unique="false" variable="" />
+  <node id="mission4 planète de glace bunker 4" textContent="Le bunker abritait un laboratoire de recherche, il fut accueilli par le responsable des lieux qui lui remit fébrilement un disque transparent." memoryAdd="MissionInfo=Vous avez ramené les résultats que nous attendions du centre de recherche" memoryRemove="" memoryCondition="" nextNodes="mission4 planète de glace bunker 5" unique="false" variable="" />
+  <node id="mission4 planète de glace bunker 3" textContent="Le mercenaire sortit du vaisseau et se dirigea vers la porte d'entrée du bunker qui s'ouvra." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète de glace bunker 4" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 7" textContent="Il regagna son vaisseau et décolla." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="évèments aléatoires de retour" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 2 v2" textContent="Le vaisseau se posa tout près d'une caverne." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 2 v2.1" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 2 v2.1" textContent="Il alluma la lampe et s'aventura dans la caverne. " memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 2 v2.2" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 2 v2.2" textContent="Il trouva une balise de signalisation longue portée et une caisse métallique qui attira son attention." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 2 v2.3 v1,mission4 planète montagneuse 2 v2.3 v2" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 7 sortie cratère" textContent="Il sortit du cratère." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 7" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 6 v2" textContent="Il l'ouvrit et prit le disque translucide s'y trouvait." memoryAdd="MissionInfo=Content de vous revoir! J'attendais depuis longtemps les informations contenues sur ce disque" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 7 sortie cratère" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 2 v2.3 v2" textContent="Il l'ouvrit et prit le disque translucide qui s'y trouvait." memoryAdd="MissionInfo=Content de vous revoir! J'attendais depuis longtemps les informations contenues sur ce disque" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 7 sortie caverne" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 7 sortie caverne" textContent="Il rebroussa chemin et sortit de la caverne." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 7" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 6" textContent="Il l'ouvrit et prit le livre qui s'y trouvait." memoryAdd="MissionInfo=Le livre que vous avez trouvé est très rare. Il est convoité par de nombreux collectionneurs à travers la galaxie" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 7 sortie cratère" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 2 v2.3 v1" textContent="Il l'ouvrit et prit le livre qui s'y trouvait." memoryAdd="MissionInfo=Le livre que vous avez trouvé est très rare. Il est convoité par de nombreux collectionneurs à travers la galaxie" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 7 sortie caverne" unique="false" variable="" />
+  <node id="mission4 planète montagneuse 2" textContent="Le vaisseau se posa tout près d'un cratère, au centre duquel se trouvait une capsule de survie calcinée." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 3" unique="false" variable="" />
+  <node id="évèments aléatoires de retour" textContent="" memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission retour,champ électromagnétique,champ de débris,vaisseau pirate,vaisseau drone de combat,champ d'astéroides" unique="false" variable="" />
+  <node id="mission4 planète montagneuse" textContent="Il arriva à proximité d'une petite planète et il amorça sa descente dans l'atmosphère. La surface de la planète était très montagneuse, l'ordinateur de bord calcula la trajectoire d'atterrissage jusqu'à la position indiquée par la carte magnétique." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète montagneuse 2" unique="true" variable="" />
+  <node id="mission5 générique" textContent="Il arriva à proximité d'une planète et il amorça sa descente dans l'atmosphère. La surface de la planète avait une végétation très dense, l'ordinateur de bord calcula la trajectoire d'atterrissage jusqu'à la position indiquée par la carte magnétique.#Il arriva à proximité d'une planète géante et il amorça sa descente dans l'atmosphère. La surface de la planète était principalement recouverte d'un étrange liquide, l'ordinateur de bord calcula la trajectoire d'atterrissage jusqu'à la position indiquée par la carte magnétique." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne" unique="false" variable="" />
+  <node id="mission5 caverne 3" textContent="Il s'arrêta de justesse au niveau d'un précipice qu'il contourna avec la plus grande attention." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne couloir" unique="false" variable="" />
+  <node id="mission5 caverne éboulement" textContent="Tandis qu'il marchait, un éboulement le prit par surprise." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne éboulement il tomba,mission5 caverne éboulement évitement" unique="false" variable="" />
+  <node id="mission5 caverne éboulement il tomba" textContent="Un rocher le percuta, et il tomba. Sa combinaison avait pu le protéger et il se remit en marche." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne petite salle,mission5 caverne grande salle,mission5 caverne gigantesque salle" unique="false" variable="" />
+  <node id="mission5 caverne éboulement évitement" textContent="Il évita de justesse un rocher qui s'écrasa à ses côtés. Il continua son exploration." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne petite salle,mission5 caverne grande salle,mission5 caverne gigantesque salle" unique="false" variable="" />
+  <node id="mission5 caverne petite salle" textContent="Il arriva dans une petite salle." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne caisses,mission5 caverne araignée,mission5 caverne scorpion,mission5 caverne rat robotique,mission5 caverne salle rien de particulier" unique="false" variable="" />
+  <node id="mission5 caverne grande salle" textContent="Il arriva dans une grande salle." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne caisses,mission5 caverne araignée,mission5 caverne salle rien de particulier,mission5 caverne scorpion,mission5 caverne rat robotique" unique="false" variable="" />
+  <node id="mission5 caverne gigantesque salle" textContent="Il arriva dans une gigantesque salle." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne caisses,mission5 caverne araignée,mission5 caverne salle rien de particulier,mission5 caverne scorpion,mission5 caverne rat robotique" unique="false" variable="" />
+  <node id="mission5 caverne caisses" textContent="Il y avait des caisses entreposées chaotiquement.#Il y avait des caisses entreposées de manière désordonnée." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne caisses vides,mission5 caverne trouve un plastron,mission5 caverne trouve un medikit" unique="false" variable="" />
+  <node id="achat medikit" textContent="Il acheta un kit médical." memoryAdd="medikit*1" memoryRemove="crédits*1" memoryCondition="" nextNodes="planète mercenaires décollage avec mission" unique="true" variable="" />
+  <node id="mission5 caverne 2" textContent="Le mercenaire sortit de son vaisseau et entra dans le tunnel. Sa combinaison était pourvue d'un éclairage externe qui faisait apparaître un chemin grossièrement taillé dans la roche. " memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne 3,mission5 caverne 4,mission5 caverne couloir" unique="false" variable="" />
+  <node id="mission5 caverne 4" textContent="Il emprunta un escalier qui s'enfonçait dans les profondeurs. Il continua son exploration malgré un mauvais pressentiment." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne 3" unique="false" variable="" />
+  <node id="mission5 caverne couloir" textContent="Il arriva dans un couloir plus finement taillé. Il emprunta le couloir qui semblait ne plus finir." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne petite salle,mission5 caverne grande salle,mission5 caverne gigantesque salle,mission5 caverne éboulement" unique="false" variable="" />
+  <node id="mission5 caverne caisses vides" textContent="Mais il n y avait rien d'intéressant à l'intérieur.#Mais elles étaient vides." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne exploration" unique="false" variable="" />
+  <node id="mission5 caverne trouve un plastron" textContent="Dans une des caisses il prit un plastron qui s'y trouvait." memoryAdd="armure*1" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne exploration" unique="false" variable="" />
+  <node id="mission5 caverne trouve un medikit" textContent="Dans une des caisses il prit un medikit qui s'y trouvait." memoryAdd="medikit*1" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne exploration" unique="false" variable="" />
+  <node id="mission5 caverne exploration" textContent="Il continua son exploration." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne galerie,mission5 caverne salle ordinateur,mission5 caverne salle hybernation" unique="false" variable="" />
+  <node id="mission5 caverne araignée" textContent="Soudain, sur une des parois surgit une sorte d’énorme araignée qui évoluait étrangement." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne araignée fuite,mission5 caverne araignée fuite à cause arme,mission5 caverne fuite mercenaire,mission5 caverne fuite mercenaire 2" unique="false" variable="" />
+  <node id="mission5 caverne araignée fuite" textContent="En voyant le visiteur, elle disparut aussitôt dans une zone d’ombre." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne exploration" unique="false" variable="" />
+  <node id="mission5 caverne araignée fuite à cause arme" textContent="Le visiteur sortit son arme puis elle disparut aussitôt dans l’ombre." memoryAdd="" memoryRemove="" memoryCondition="arme&gt;1" nextNodes="mission5 caverne exploration" unique="false" variable="" />
+  <node id="mission5 caverne rat robotique" textContent="Soudain, surgit une créature dont la moitié semblait être robotisée qui ressemblait à un énorme rat. " memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne fuite mercenaire,mission5 caverne fuite mercenaire 2,mission5 caverne rat robotique attaque" unique="false" variable="" />
+  <node id="mission5 caverne rat robotique attaque" textContent="Elle fixa le visiteur de ses yeux rouges puis bondit sur lui sans lui laisser le temps de réagir." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne rat robotique riposte mercenaire" unique="false" variable="" />
+  <node id="mission5 caverne fuite mercenaire" textContent="Elle fixait le visiteur de ses yeux rouges, n’étant pas armé il ne prit pas de risque et rebroussa chemin, s’assurant qu’il n’était pas suivi." memoryAdd="" memoryRemove="" memoryCondition="arme&gt;1" nextNodes="mission5 caverne retour vaisseau" unique="false" variable="" />
+  <node id="mission5 caverne fuite mercenaire 2" textContent="N’étant armé que d’un couteau, il ne prit pas de risque et rebroussa chemin, s’assurant qu’il n’était pas suivi." memoryAdd="" memoryRemove="" memoryCondition="arme=1" nextNodes="mission5 caverne retour vaisseau" unique="false" variable="" />
+  <node id="mission5 caverne" textContent="Le vaisseau se posa près de l'entrée d'un tunnel creusé dans une montagne." memoryAdd="MissionInfo=Je vois que n'avez pas amené ce que j'attendais. J'enverrai quelqu'un d'autre sur place" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne 2" unique="false" variable="" />
+  <node id="mission4 petite planète rocheuse centre de recherche" textContent="Il arriva à proximité d'une petite planète et amorça sa descente dans l'atmosphère. La surface de la planète était recouvertes de hautes montagnes, l'ordinateur de bord calcula la trajectoire d'atterrissage jusqu'à une petit centre de recherche isolé." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission4 planète de glace bunker 2" unique="true" variable="" />
+  <node id="vérification dommages" textContent="Le viasseau était endommagé, sans réparation préalable, le vaisseau riquait de ne pas supporter la rentrée dans l'atmosphère." memoryAdd="" memoryRemove="" memoryCondition="dommages&gt;1" nextNodes="pas de drones de réparation,drones de réparation" unique="false" variable="" />
+  <node id="mission5 caverne scorpion" textContent="Soudain, une sorte d’énorme scorpion s’avança devant le visiteur, la moitié de la créature semblait être robotisée." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne fuite mercenaire,mission5 caverne fuite mercenaire 2,mission5 caverne scorpion fuite après être touché" unique="false" variable="" />
+  <node id="mission5 caverne scorpion fuite après être touché" textContent="Le scorpion se dirigeait toujours vers le mercenaire, il sortit son arme et tira à plusieurs reprises sur le scorpion. Les projectiles s’écrasaient sur la partie métallique de la créature et elle avançait toujours. Puis il visa le dard et toucha sa cible, c’est alors que la créature pris la fuite." memoryAdd="" memoryRemove="" memoryCondition="arme&gt;1" nextNodes="mission5 caverne exploration" unique="false" variable="" />
+  <node id="mission5 caverne salle rien de particulier" textContent="Mais il n y avait rien de particulier dans la pièce." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne exploration" unique="false" variable="" />
+  <node id="mission5 caverne galerie" textContent="Il arriva dans une galerie jonchée de rochers de toutes tailles, il remarqua quelques cristaux incrustés dans certaines pierres, il prit un échantillon et rebroussa chemin." memoryAdd="MissionInfo=L'échantillon que vous avez ramené va être analysé" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne retour vaisseau" unique="false" variable="" />
+  <node id="mission5 caverne salle ordinateur" textContent="Il arriva dans une salle dans laquelle s’enchevêtrait des câbles électriques. Au centre de la salle, il y avait un ordinateur d’une taille démesurée. Il réussit à détacher ce qui ressemblait à une mémoire secondaire puis Il retourna sur ses pas." memoryAdd="MissionInfo=Nous essayons de décrypter la mémoire que vous avez ramené" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne retour vaisseau" unique="false" variable="" />
+  <node id="mission5 caverne salle hybernation" textContent="Il arriva dans une pièce depuis laquelle des câbles électriques sortaient, la pièce était éclairée par une lumière artificielle bleutée. Au centre se trouvait un grand cylindre dans lequel une étrange créature somnolente baignait dans un liquide étrange. Il se dirigea vers le panneau de contrôle du cylindre et brancha un câble de sa combinaison. Lorsque le téléchargement de données fut complet, il repartit." memoryAdd="MissionInfo=Parfait! J'attendais avec impatience ces données" memoryRemove="" memoryCondition="" nextNodes="mission5 caverne retour vaisseau" unique="false" variable="" />
+  <node id="mission5 caverne retour vaisseau" textContent="Il parvint à sortir de la caverne sans encombres et il retourna à son vaisseau et décolla." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission retour" unique="false" variable="" />
+  <node id="mission5 caverne rat robotique riposte mercenaire" textContent="Tombé au sol, Il arriva à peine à se dégager qu’il sentit une douleur à sa jambe, de son autre jambe il frappa la créature. Il sortit son arme et tira à plusieurs reprises sur la créature qui fuyait." memoryAdd="blessure*1" memoryRemove="" memoryCondition="arme&gt;1" nextNodes="mission5 caverne exploration" unique="false" variable="" />
+  <node id="vaisseau mère captation capsule de survie" textContent="Le commandant du vaisseau fut récompensé par la planète des mercenaires. Un nouveau vaisseau fut fourni au mercenaire et il décolla." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="mission retour" unique="false" variable="" />
+  <node id="espace pilote capsule survie" textContent="Mais quelques secondes avant l'impacte, le pilote avait pu atteindre la capsule de survie qui dérivait à présent dans l'espace." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="vaisseau mère captation capsule de survie" unique="false" variable="" />
+  <node id="mercenaire réanimation dans la tour des mercenaires" textContent="Le pilote se réveilla en sursaut au sous-sol de la tour des mercenaires, il distinguait une multitude de personnes en blouse blanche. La lumière de la salle lui faisait mal aux yeux, il parvint à lire sur l'ordinateur de bord &quot;reconstitution terminée&quot;. Il se leva et se changea, il était attendu en haut. Accompagné d'un garde, il se dirigea vers l'ascenseur. Il prirent place dans l'ascenseur et le garde actionna l'ascenseur." memoryAdd="MissionInfo=Vous me remercierez plus tard pour le vaisseau, il est sur la plateforme" memoryRemove="" memoryCondition="" nextNodes="mission" unique="false" variable="" />
+  <pathChosen id="planète mercenaires descente" />
+  <pathChosen id="planète mercenaires survol" />
+  <pathChosen id="planète mercenaires atterrissage" />
+  <pathChosen id="planète mercenaires accueil" />
+  <pathChosen id="première mission" />
+  <pathChosen id="planète mercenaires décollage avec mission" />
+  <pathChosen id="sortie planète des mercenaires avec mission" />
+  <pathChosen id="mission3 difficulté1 partie1" />
+  <pathChosen id="mission3 difficulté1 partie 2 intercepteur tire missile" />
+  <pathChosen id="mission3 difficulté1 partie 2 évitement missile" />
+  <pathChosen id="mission3 difficulté1 partie 2 évitement missile ordinateur de bord" />
+  <pathChosen id="mission3 difficulté1 partie 2 dans trajectoire vaisseau cargo" />
+  <pathChosen id="mission3 difficulté1 partie 2 dérrière vaisseau cargo" />
+  <pathChosen id="mission3 difficulté1 partie 2 missile explosion cargo" />
+  <pathChosen id="mission3 difficulté1 partie3 escorteur fuite" />
+  <pathChosen id="mission retour" />
+  <pathChosen id="planète mercenaires descente" />
+  <pathChosen id="planète mercenaires survol" />
+  <pathChosen id="planète mercenaires atterrissage" />
+  <pathChosen id="planète mercenaires accueil" />
+  <pathChosen id="mission" />
+  <pathChosen id="pas besoin de réparation" />
+  <pathChosen id="armurie" />
+  <pathChosen id="achat pistolet" />
+  <pathChosen id="planète mercenaires décollage avec mission" />
+  <pathChosen id="sortie planète des mercenaires avec mission" />
+  <pathChosen id="mission2 difficulté1 partie1" />
+  <pathChosen id="mission2 difficulté1 partie2" />
+  <pathChosen id="mission2 difficulté1 partie3" />
+  <pathChosen id="mission2 difficulté1 partie4" />
+  <pathChosen id="mission2 difficulté1 partie5" />
+  <pathChosen id="mission2 difficulté1 partie6" />
+  <pathChosen id="mission2 difficulté1 partie7" />
+  <pathChosen id="mission retour" />
+  <pathChosen id="planète mercenaires descente" />
+  <pathChosen id="planète mercenaires survol" />
+  <pathChosen id="planète mercenaires atterrissage" />
+  <pathChosen id="planète mercenaires accueil" />
+  <pathChosen id="mission" />
+  <pathChosen id="pas besoin de réparation" />
+  <pathChosen id="armurie" />
+  <pathChosen id="achat fusil de précision" />
+  <pathChosen id="planète mercenaires décollage avec mission" />
+  <pathChosen id="sortie planète des mercenaires avec mission" />
+  <pathChosen id="mission5 générique" />
+  <pathChosen id="mission5 caverne" />
+  <pathChosen id="mission5 caverne 2" />
+  <pathChosen id="mission5 caverne couloir" />
+  <pathChosen id="mission5 caverne grande salle" />
+  <pathChosen id="mission5 caverne caisses" />
+  <pathChosen id="mission5 caverne trouve un medikit" />
+  <pathChosen id="mission5 caverne exploration" />
+  <pathChosen id="mission5 caverne salle ordinateur" />
+  <pathChosen id="mission5 caverne retour vaisseau" />
+  <pathChosen id="mission retour" />
+  <pathChosen id="planète mercenaires descente" />
+  <pathChosen id="planète mercenaires survol" />
+  <pathChosen id="planète mercenaires atterrissage" />
+  <pathChosen id="planète mercenaires accueil" />
+  <pathChosen id="mission" />
+  <pathChosen id="pas besoin de réparation" />
+  <pathChosen id="armurie" />
+  <pathChosen id="achat couteau" />
+  <pathChosen id="planète mercenaires décollage avec mission" />
+  <pathChosen id="sortie planète des mercenaires avec mission" />
+  <pathChosen id="mission4 planète montagneuse" />
+  <pathChosen id="mission4 planète montagneuse 2" />
+  <pathChosen id="mission4 planète montagneuse 3" />
+  <pathChosen id="mission4 planète montagneuse 4" />
+  <pathChosen id="mission4 planète montagneuse 5" />
+  <pathChosen id="mission4 planète montagneuse 6" />
+  <pathChosen id="mission4 planète montagneuse 7 sortie cratère" />
+  <pathChosen id="mission4 planète montagneuse 7" />
+  <pathChosen id="évèments aléatoires de retour" />
+  <pathChosen id="champ de débris" />
+  <pathChosen id="évitement de débris" />
+  <pathChosen id="mission retour" />
+  <pathChosen id="planète mercenaires descente" />
+  <pathChosen id="planète mercenaires survol" />
+  <pathChosen id="planète mercenaires atterrissage" />
+  <pathChosen id="planète mercenaires accueil" />
+  <pathChosen id="mission" />
+  <pathChosen id="pas besoin de réparation" />
+  <pathChosen id="armurie" />
+  <pathChosen id="achat plastron" />
+  <pathChosen id="planète mercenaires décollage avec mission" />
+  <pathChosen id="sortie planète des mercenaires avec mission" />
+  <pathChosen id="mission4 station minière" />
+  <pathChosen id="mission4 station minière 2" />
+  <pathChosen id="mission4 station minière 3" />
+  <pathChosen id="mission4 station minière 4" />
+  <pathChosen id="mission4 station minière 5" />
+  <pathChosen id="évèments aléatoires de retour" />
+  <pathChosen id="champ électromagnétique" />
+  <pathChosen id="mission retour" />
+  <pathChosen id="planète mercenaires descente" />
+  <pathChosen id="planète mercenaires survol" />
+  <pathChosen id="planète mercenaires atterrissage" />
+  <pathChosen id="planète mercenaires accueil" />
+  <pathChosen id="mission" />
+  <pathChosen id="pas besoin de réparation" />
+  <pathChosen id="armurie" />
+  <pathChosen id="achat fusil d'assaut" />
+  <pathChosen id="planète mercenaires décollage avec mission" />
+  <pathChosen id="sortie planète des mercenaires avec mission" />
+  <pathChosen id="mission4 planète de glace bunker" />
+  <pathChosen id="mission4 planète de glace bunker 2" />
+  <pathChosen id="mission4 planète de glace bunker 3" />
+  <pathChosen id="mission4 planète de glace bunker 4" />
+  <pathChosen id="mission4 planète de glace bunker 5" />
+  <pathChosen id="évèments aléatoires de retour" />
+  <pathChosen id="vaisseau drone de combat" />
+  <pathChosen id="vaisseau drone de combat attaque" />
+  <pathChosen id="vaisseau touché par tirs du drone" />
+  <pathChosen id="riposte vaisseau contre drone" />
+  <pathChosen id="explosion drone de combat par tirs" />
+  <pathChosen id="mission retour" />
+  <pathChosen id="planète mercenaires descente" />
+  <pathChosen id="planète mercenaires survol" />
+  <pathChosen id="planète mercenaires atterrissage" />
+  <pathChosen id="planète mercenaires accueil" />
+  <pathChosen id="mission" />
+  <pathChosen id="besoin de réparation" />
+  <pathChosen id="crédits insuffisants pour réparation" />
+  <pathChosen id="planète mercenaires décollage avec mission" />
+  <pathChosen id="sortie planète des mercenaires avec mission" />
+  <pathChosen id="mission4 station orbitale" />
+  <pathChosen id="mission4 station orbitale 2" />
+  <pathChosen id="mission4 station orbitale 3 v1" />
+  <pathChosen id="mission4 station orbitale 4" />
+  <pathChosen id="mission4 station orbitale 5" />
+  <pathChosen id="débris" />
+  <pathChosen id="fragment asteroide degats2" />
+  <pathChosen id="mission retour" />
+  <pathChosen id="vérification dommages" />
+  <pathChosen id="pas de drones de réparation" />
+  <pathChosen id="planète mercenaires descente avec dommages critiques" />
+  <pathChosen id="mercenaire réanimation dans la tour des mercenaires" />
+  <pathChosen id="mission" />
+  <pathChosen id="besoin de réparation" />
+  <pathChosen id="crédits suffisants pour réparation" />
+  <pathChosen id="pas assez de crédits" />
+  <pathChosen id="planète mercenaires décollage avec mission" />
+  <pathChosen id="sortie planète des mercenaires avec mission" />
+  <pathChosen id="mission4 vaisseau mère" />
+  <pathChosen id="mission4 vaisseau mère 2" />
+  <pathChosen id="mission4 vaisseau mère 3 v3" />
+  <pathChosen id="mission4 vaisseau mère 4" />
+  <pathChosen id="mission4 vaisseau mère 5" />
+  <pathChosen id="évèments aléatoires de retour" />
+  <pathChosen id="champ d'astéroides" />
+  <pathChosen id="évitement d'astéroides" />
+  <pathChosen id="mission retour" />
+  <pathChosen id="planète mercenaires descente" />
+  <pathChosen id="planète mercenaires survol" />
+  <pathChosen id="planète mercenaires atterrissage" />
+  <pathChosen id="planète mercenaires accueil" />
+  <pathChosen id="mission" />
+  <pathChosen id="besoin de réparation" />
+  <pathChosen id="crédits insuffisants pour réparation" />
+  <pathChosen id="planète mercenaires décollage avec mission" />
+  <pathChosen id="sortie planète des mercenaires avec mission" />
+  <pathChosen id="mission1 difficulté1 partie1" />
+  <pathChosen id="mission1 difficulté1 partie2" />
+  <pathChosen id="mission retour" />
+  <pathChosen id="planète mercenaires descente" />
+  <pathChosen id="planète mercenaires survol" />
+  <pathChosen id="planète mercenaires atterrissage" />
+  <pathChosen id="planète mercenaires accueil" />
+  <pathChosen id="mission" />
+  <pathChosen id="besoin de réparation" />
+  <pathChosen id="crédits suffisants pour réparation" />
+  <pathChosen id="pas assez de crédits" />
+  <pathChosen id="planète mercenaires décollage avec mission" />
+  <pathChosen id="sortie planète des mercenaires avec mission" />
+  <pathChosen id="mission5 générique" />
+  <pathChosen id="mission5 caverne" />
+  <pathChosen id="mission5 caverne 2" />
+  <pathChosen id="mission5 caverne 4" />
+  <pathChosen id="mission5 caverne 3" />
+  <pathChosen id="mission5 caverne couloir" />
+  <pathChosen id="mission5 caverne gigantesque salle" />
+  <pathChosen id="mission5 caverne salle rien de particulier" />
+  <pathChosen id="mission5 caverne exploration" />
+  <pathChosen id="mission5 caverne salle hybernation" />
+  <pathChosen id="mission5 caverne retour vaisseau" />
+  <pathChosen id="mission retour" />
+  <pathChosen id="planète mercenaires descente" />
+  <pathChosen id="planète mercenaires survol" />
+  <pathChosen id="planète mercenaires atterrissage" />
+  <pathChosen id="planète mercenaires accueil" />
+  <pathChosen id="mission" />
+  <pathChosen id="pas besoin de réparation" />
+  <pathChosen id="armurie" />
+  <pathChosen id="achat medikit" />
+  <pathChosen id="planète mercenaires décollage avec mission" />
+  <pathChosen id="sortie planète des mercenaires avec mission" />
+</story>

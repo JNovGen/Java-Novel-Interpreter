@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<story title="zombie" author="" startPoint="début" length="300">
+  <node id="début" textContent="&lt;chapter&gt;" memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="init" unique="false" variable="" />
+  <node id="nuit_bruit_RAS" textContent="Il ne vit personne et retourna se coucher." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_RAS" unique="false" variable="" />
+  <node id="nuit_zombi" textContent="Soudain, un zombie se précipita sur lui." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_esquive,nuit_pistolet,morsure" unique="false" variable="" />
+  <node id="init" textContent="" memoryAdd="nourriture*3" memoryRemove="" memoryCondition="" nextNodes="une_journée" unique="false" variable="" />
+  <node id="nuit_RAS" textContent="Il dormit paisiblement jusqu'au matin." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="une_journée" unique="false" variable="" />
+  <node id="nuit_bruit" textContent="Il entendit un bruit de verre cassé et se dirigea vers l'origine du fracas." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_bruit_RAS,nuit_zombi" unique="false" variable="" />
+  <node id="nuit_cacher" textContent="Il se cacha, le zombi ne trouvant rien repartit." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_RAS" unique="false" variable="" />
+  <node id="nuit_zombi_fenetre" textContent="un zombi brisa une fenêtre et sentit une présence humaine." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_cacher,nuit_cacher_trouvé" unique="false" variable="" />
+  <node id="une_nuit" textContent="la nuit venait de tomber.#Le soleil venait de se coucher, la nuit tomba." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_manger,nuit_pas_de_nourriture,nuit_mort_de_faim" unique="false" variable="" />
+  <node id="nuit_cacher_trouvé" textContent="Il se cacha, mais le zombi le trouva et se précipita sur lui." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="morsure,nuit_esquive,nuit_pistolet" unique="false" variable="" />
+  <node id="nuit_esquive" textContent="Il donna un violent coup de pied, le zombi tomba. " memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_achever_batte" unique="false" variable="" />
+  <node id="nuit_achever_batte" textContent="Il acheva le zombi d'un violent de coups de batte de baseball." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_fin_zombie" unique="false" variable="" />
+  <node id="nuit_fin_zombie" textContent="Il retourna se coucher." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_RAS" unique="false" variable="" />
+  <node id="une_journée" textContent="Le soleil venait de se lever.#Une nouvelle journée commençait." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_exploration" unique="false" variable="" />
+  <node id="jour_voiture" textContent="Il trouva une voiture abandonnée et l'inspecta." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_ne_trouva_rien,jour_trouver_pistolet,jour_trouver_nourriture" unique="false" variable="" />
+  <node id="jour_zombie" textContent="Soudain, un zombi se précipita sur lui." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_esquive,morsure,jour_pistolet" unique="false" variable="" />
+  <node id="jour_esquive" textContent="Il donna un violent coup de pied, le zombi tomba. " memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_achever_batte,jour_pistolet" unique="false" variable="" />
+  <node id="jour_pistolet" textContent="Il saisit son pistolet et tira sur le zombi qui s'effondra sur le sol.#Il prit son pistolet et tira à plusieurs reprises sur le zombi qui s'écroula au sol." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_fin" unique="false" variable="" />
+  <node id="jour_fin" textContent="Il retourna à son refuge." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="une_nuit" unique="false" variable="" />
+  <node id="jour_ne_trouva_rien" textContent="Il ne trouva rien d'intéressant.#Il ne trouva rien." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_fin,jour_zombie" unique="false" variable="" />
+  <node id="jour_trouver_nourriture" textContent="Il trouva de la nourriture et de l'eau." memoryAdd="nourriture*1" memoryRemove="" memoryCondition="" nextNodes="jour_fin,jour_zombie" unique="false" variable="" />
+  <node id="jour_trouver_pistolet" textContent="Il trouva un pistolet avec quelques munitions." memoryAdd="pistolet*1" memoryRemove="" memoryCondition="pistolet&lt;1" nextNodes="jour_fin,jour_zombie" unique="false" variable="" />
+  <node id="morsure" textContent="Il mordit notre héros, la morsure fut fatale." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="" unique="false" variable="" />
+  <node id="jour_achever_batte" textContent="Il acheva le zombie d'un violent de coups de batte de baseball." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_fin" unique="false" variable="" />
+  <node id="nuit_manger" textContent="Il mangea puis alla se coucher." memoryAdd="" memoryRemove="nourriture*1" memoryCondition="nourriture&gt;0" nextNodes="nuit_RAS,nuit_bruit,nuit_zombi_fenetre" unique="false" variable="" />
+  <node id="nuit_pas_de_nourriture" textContent="Il n'avait rien à manger et alla se coucher directement." memoryAdd="faim*1" memoryRemove="nourriture*1" memoryCondition="nourriture&lt;1" nextNodes="nuit_RAS,nuit_bruit,nuit_zombi_fenetre" unique="false" variable="" />
+  <node id="nuit_pistolet" textContent="Il saisit son pistolet et tira sur le qui s'effondra sur le sol.# Il prit son pistolet et tira à plusieurs reprises sur le zombie qui s'écroula au sol." memoryAdd="" memoryRemove="" memoryCondition="pistolet&gt;0" nextNodes="nuit_fin_zombie" unique="false" variable="" />
+  <node id="nuit_mort_de_faim" textContent="Il mourut de faim." memoryAdd="" memoryRemove="" memoryCondition="faim&gt;0" nextNodes="" unique="false" variable="" />
+  <node id="jour_exploration" textContent="Le survivant sortit de son refuge et partit explorer les alentours." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_voiture,jour_habitation,jour_zombie" unique="false" variable="" />
+  <node id="jour_habitation" textContent="Il se dirigea vers une maison abandonnée et l'inspecta.#Il se dirigea vers un immeuble abandonné et l'inspecta." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_ne_trouva_rien,jour_trouver_pistolet,jour_trouver_nourriture" unique="false" variable="" />
+  <pathChosen id="init" />
+  <pathChosen id="une_journée" />
+  <pathChosen id="jour_exploration" />
+  <pathChosen id="jour_voiture" />
+  <pathChosen id="jour_trouver_nourriture" />
+  <pathChosen id="jour_fin" />
+  <pathChosen id="une_nuit" />
+  <pathChosen id="nuit_manger" />
+  <pathChosen id="nuit_bruit" />
+  <pathChosen id="nuit_bruit_RAS" />
+  <pathChosen id="nuit_RAS" />
+  <pathChosen id="une_journée" />
+  <pathChosen id="jour_exploration" />
+  <pathChosen id="jour_habitation" />
+  <pathChosen id="jour_trouver_pistolet" />
+  <pathChosen id="jour_fin" />
+  <pathChosen id="une_nuit" />
+  <pathChosen id="nuit_manger" />
+  <pathChosen id="nuit_bruit" />
+  <pathChosen id="nuit_zombi" />
+  <pathChosen id="nuit_pistolet" />
+  <pathChosen id="nuit_fin_zombie" />
+  <pathChosen id="nuit_RAS" />
+  <pathChosen id="une_journée" />
+  <pathChosen id="jour_exploration" />
+  <pathChosen id="jour_zombie" />
+  <pathChosen id="jour_esquive" />
+  <pathChosen id="jour_pistolet" />
+  <pathChosen id="jour_fin" />
+  <pathChosen id="une_nuit" />
+  <pathChosen id="nuit_manger" />
+  <pathChosen id="nuit_bruit" />
+  <pathChosen id="nuit_zombi" />
+  <pathChosen id="nuit_pistolet" />
+  <pathChosen id="nuit_fin_zombie" />
+  <pathChosen id="nuit_RAS" />
+  <pathChosen id="une_journée" />
+  <pathChosen id="jour_exploration" />
+  <pathChosen id="jour_habitation" />
+  <pathChosen id="jour_ne_trouva_rien" />
+  <pathChosen id="jour_zombie" />
+  <pathChosen id="jour_pistolet" />
+  <pathChosen id="jour_fin" />
+  <pathChosen id="une_nuit" />
+  <pathChosen id="nuit_manger" />
+  <pathChosen id="nuit_zombi_fenetre" />
+  <pathChosen id="nuit_cacher_trouvé" />
+  <pathChosen id="nuit_pistolet" />
+  <pathChosen id="nuit_fin_zombie" />
+  <pathChosen id="nuit_RAS" />
+  <pathChosen id="une_journée" />
+  <pathChosen id="jour_exploration" />
+  <pathChosen id="jour_voiture" />
+  <pathChosen id="jour_trouver_nourriture" />
+  <pathChosen id="jour_zombie" />
+  <pathChosen id="morsure" />
+</story>
