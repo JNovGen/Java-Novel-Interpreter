@@ -6,6 +6,6 @@ A java program to interprete / generate a novel from a story model
 The interpreter needs in input the source code of a story model (must be written by the human author). So the human author creates the story world and the rules in a specific language (defined later), then the Java Novel Interpeter chooses a possible path.
 ![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/1a696fe3-c8be-4c6b-aa08-59e381369f0d)
 
-# How to write the soruce code of the story model ?
+# How to write the source code of the story model ?
 In theory you just need a text editor :
 
