@@ -26,6 +26,7 @@ It contains four attributes :
 The main element is "node" :
 
 ![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/bdbc0534-9f5e-4c71-a574-9393dfa9163d)
+![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/0a9ed46e-f874-4a8f-a5bd-e1226b1ae756)
 
 The node element contains height attributes :
 - id : the unique indetifier of a node
