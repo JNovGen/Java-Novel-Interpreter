@@ -13,7 +13,7 @@ In theory you just need a text editor :
 
 ![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/57cdbecc-9ae4-46a4-b4f0-723a2fc5b211)
 
-The root element is "<story>" :
+The root element is "story" :
 
 ![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/807ffc60-ac37-4df5-a934-9115f79c1916)
 
@@ -23,7 +23,7 @@ It contains four attributes :
 - startPoint : the node ID where the interpreter starts to generate a story
 - length : the number of nodes that the interpreter has to going throw
 
-The main element is "<node>" :
+The main element is "node" :
 
 ![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/bdbc0534-9f5e-4c71-a574-9393dfa9163d)
 
