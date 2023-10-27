@@ -1,5 +1,6 @@
 # Java-Novel-Interpreter
 A java program to interprete / generate a novel from a story model
+You can download and run the java runnable version or import in Eclipse IDE the java project.
 
 ![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/574dab06-cc5c-4435-8d9f-2a3cb8515f09)
 
@@ -40,11 +41,39 @@ each node.You can use the operators: <, >, =, >=, <= to compare with integer num
 - unique : means if the interpreter can throw more times or not in the same node. unique can take two values : "false" or "true".
 - variable : you can set here variable names that as used in textContent. For example : textContent="The survivor had only FOOD tins left." so in the variable field you will have : variable="FOOD". The interpreter will replace the value of FOOD in the text description.
 
+# Using the interpreter
+- At first you need to load a story model :
+
+![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/d3a38c37-5782-45ab-9eb1-3effbe70cd58)
+
+So click on "open a story", and choose your file. Then the program will load all the nodes of the story model :
+
+![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/8907f207-df63-4a8c-b9b3-021e881ed0f1)
+
+You can also browse node information, it will display what is written in the xml file.
+
+- Generate a story from the source code of the story model :
+  
+Going to the "run" panel :
+
+![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/1002d692-ad2b-4955-8138-d3b86b38183d)
+
+
+You can choose a start point, a story length, from these parameters the interpreter will generate a story by choosing a path in your story model. You can use the button "reset path" to force the generate a new story and not use an existing path. By using the button "Run story", the interpreter will execute the story model (by choosing a path) and generate a story. A story is a chosen path in story model. Below is an example of output.
+
+![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/c5c0eb37-9ee9-4eed-8132-698447ce91e0)
+
+You can use the button "Show progress", it's like a debug mode, it will show up the nodes chosen and the memory state at each step :
+
+![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/9480c28f-e6e0-4891-bb28-1481beeec1b0)
+
 # Advice
 
 When the sotry model become too big, you may use a dedicated editor (at least to visualize graphically the story world). In the example, the file is converted in Cmap format and can be visualized with CmapTools :
 
 ![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/5f1997ea-c9c6-48d2-9fc7-9d460d6ab822)
 
+# Conclusion
 
+The program doesn't invent anything, but deduces a story from the information and rules provided by the user.
 
