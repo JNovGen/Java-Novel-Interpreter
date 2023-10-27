@@ -12,6 +12,11 @@ In theory you just need a text editor :
 
 ![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/57cdbecc-9ae4-46a4-b4f0-723a2fc5b211)
 
+The element <story> specifies to the interpreter where 
+<story title="zombie" author="" startPoint="init" length="300">
+  ...
+</story>
+
 When the sotry model become too big, you may use a dedicated editor (at least to visualize graphically the story world). In the example, the file is converted in Cmap format and can be visualized with CmapTools :
 
 ![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/5f1997ea-c9c6-48d2-9fc7-9d460d6ab822)
