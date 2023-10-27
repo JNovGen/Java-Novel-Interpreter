@@ -69,7 +69,7 @@ You can use the button "Show progress", it's like a debug mode, it will show up 
 
 # Advice
 
-When the sotry model become too big, you may use a dedicated editor (at least to visualize graphically the story world). In the example, the file is converted in Cmap format and can be visualized with CmapTools :
+When the story model become too big, you may use a dedicated editor (at least to visualize graphically the story world). In the example, the file is converted in Cmap format and can be visualized with CmapTools :
 
 ![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/5f1997ea-c9c6-48d2-9fc7-9d460d6ab822)
 
