@@ -13,6 +13,7 @@ In theory you just need a text editor :
 ![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/57cdbecc-9ae4-46a4-b4f0-723a2fc5b211)
 
 The element <story> specifies to the interpreter where 
+
 <story title="zombie" author="" startPoint="init" length="300">
   ...
 </story>
