@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<story title="zombie" author="" startPoint="init" length="300">
+  <node id="nuit_bruit_RAS" textContent="He saw no one and went back to bed." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_RAS" unique="false" variable="" />
+  <node id="nuit_zombi" textContent="Suddenly, a zombie rushed at him." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_esquive,nuit_pistolet,morsure" unique="false" variable="" />
+  <node id="init" textContent="" memoryAdd="nourriture*3" memoryRemove="" memoryCondition="" nextNodes="une_journée" unique="false" variable="" />
+  <node id="nuit_RAS" textContent="He slept peacefully until morning." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="une_journée" unique="false" variable="" />
+  <node id="nuit_bruit" textContent="He heard the sound of breaking glass and moved towards the source of the crash." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_bruit_RAS,nuit_zombi" unique="false" variable="" />
+  <node id="nuit_cacher" textContent="He hid, the zombie finding nothing, left." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_RAS" unique="false" variable="" />
+  <node id="nuit_zombi_fenetre" textContent="a zombie broke a window and felt a human presence." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_cacher,nuit_cacher_trouvé" unique="false" variable="" />
+  <node id="une_nuit" textContent="Night has fallen.#The sun had just set, and night fell." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_manger,nuit_pas_de_nourriture,nuit_mort_de_faim" unique="false" variable="" />
+  <node id="nuit_cacher_trouvé" textContent="He hid, but the zombie found him and pounced on him." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="morsure,nuit_esquive,nuit_pistolet" unique="false" variable="" />
+  <node id="nuit_esquive" textContent="With a violent kick, the zombie fell." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_achever_batte" unique="false" variable="" />
+  <node id="nuit_achever_batte" textContent="He finished off the zombie with a series of violent blows from a baseball bat." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_fin_zombie" unique="false" variable="" />
+  <node id="nuit_fin_zombie" textContent="He went back to bed." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="nuit_RAS" unique="false" variable="" />
+  <node id="une_journée" textContent="The sun has just risen.#A new day was beginning." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_exploration" unique="false" variable="" />
+  <node id="jour_voiture" textContent="He found an abandoned car and inspected it." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_ne_trouva_rien,jour_trouver_pistolet,jour_trouver_nourriture" unique="false" variable="" />
+  <node id="jour_zombie" textContent="Suddenly, a zombie rushed at him." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_esquive,morsure,jour_pistolet" unique="false" variable="" />
+  <node id="jour_esquive" textContent="With a violent kick, the zombie fell." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_achever_batte,jour_pistolet" unique="false" variable="" />
+  <node id="jour_pistolet" textContent="He grabbed his pistol and fired at the zombie, which collapsed to the ground.#He grabbed his pistol and fired repeatedly at the zombie, which collapsed to the ground." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_fin" unique="false" variable="" />
+  <node id="jour_fin" textContent="He returned to his refuge." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="une_nuit" unique="false" variable="" />
+  <node id="jour_ne_trouva_rien" textContent="He found nothing interesting.#He found nothing." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_fin,jour_zombie" unique="false" variable="" />
+  <node id="jour_trouver_nourriture" textContent="He found food and water." memoryAdd="nourriture*1" memoryRemove="" memoryCondition="" nextNodes="jour_fin,jour_zombie" unique="false" variable="" />
+  <node id="jour_trouver_pistolet" textContent="He found a pistol with some ammunition." memoryAdd="pistolet*1" memoryRemove="" memoryCondition="pistolet&lt;1" nextNodes="jour_fin,jour_zombie" unique="false" variable="" />
+  <node id="morsure" textContent="He bit our hero, and the bite was fatal." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="" unique="false" variable="" />
+  <node id="jour_achever_batte" textContent="He finished off the zombie with a series of violent blows from his baseball bat." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_fin" unique="false" variable="" />
+  <node id="nuit_manger" textContent="He ate and went to bed." memoryAdd="" memoryRemove="nourriture*1" memoryCondition="nourriture&gt;0" nextNodes="nuit_RAS,nuit_bruit,nuit_zombi_fenetre" unique="false" variable="" />
+  <node id="nuit_pas_de_nourriture" textContent="He had nothing to eat and went straight to bed." memoryAdd="faim*1" memoryRemove="nourriture*1" memoryCondition="nourriture&lt;1" nextNodes="nuit_RAS,nuit_bruit,nuit_zombi_fenetre" unique="false" variable="" />
+  <node id="nuit_pistolet" textContent="He grabbed his pistol and fired at the zombie, which collapsed to the ground.#He grabbed his pistol and fired several shots at the zombie, which collapsed to the ground." memoryAdd="" memoryRemove="" memoryCondition="pistolet&gt;0" nextNodes="nuit_fin_zombie" unique="false" variable="" />
+  <node id="nuit_mort_de_faim" textContent="He died of hunger." memoryAdd="" memoryRemove="" memoryCondition="faim&gt;0" nextNodes="" unique="false" variable="" />
+  <node id="jour_exploration" textContent="The survivor had only nourriture tins left. He emerged from his refuge and set off to explore the surrounding area." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_voiture,jour_habitation,jour_zombie" unique="false" variable="nourriture" />
+  <node id="jour_habitation" textContent="He headed for an abandoned house and inspected it.#He headed for an abandoned building and inspected it." memoryAdd="" memoryRemove="" memoryCondition="" nextNodes="jour_ne_trouva_rien,jour_trouver_pistolet,jour_trouver_nourriture" unique="false" variable="" />
+</story>
