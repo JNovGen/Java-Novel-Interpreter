@@ -1,6 +1,5 @@
 # Java-Novel-Interpreter
-A java program to interprete / generate a novel from a story model
-You can download and run the java runnable version or import in Eclipse IDE the java project.
+A java program to interprete / generate a novel from a story model. You can download and run the java runnable version or import in Eclipse IDE the java project.
 
 ![image](https://github.com/JNovGen/Java-Novel-Interpreter/assets/120131145/574dab06-cc5c-4435-8d9f-2a3cb8515f09)
 
